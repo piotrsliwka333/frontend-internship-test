@@ -48,17 +48,22 @@ body {
   0% {
     opacity: 1;
   }
-  30% {
+  25% {
     transform: scale(1.2);
   }
-  60% {
+  50% {
     transform: scale(1);
+    opacity: 1;
   }
-  90% {
+  70% {
     transform: rotateX(-300px);
   }
+  90% {
+    transform: rotateX(-700px);
+  }
   100% {
-    transform: translateX(-600px);
+    transform: scale(0.9) translateX(-1000px);
+    opacity: 0;
   }
 }
 
@@ -264,7 +269,7 @@ body {
 
 .hide-animation {
   animation-name: hideAnimation;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 

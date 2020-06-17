@@ -70,7 +70,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			$form.appendChild(agreementError)
 		}
 		if (validateEmail($formEmail.value) && $formPassword.value.length >= 6 && $formAgreement.checked) {
-			console.log('form sent');
+			$popup.classList.add('hide-animation')
+			const timeout = setTimeout(() => {
+				$popup.parentElement.removeChild($popup)
+				const formSentElement = document.createElement('p')
+				formSentElement.classList.add('form-sent-message')
+				formSentElement.innerText = 'Thank you!'
+				$main.appendChild(formSentElement)
+			}, 2000)
 		}
 	})
 })
