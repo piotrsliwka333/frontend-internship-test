@@ -34,6 +34,45 @@ body {
   display: none;
 }
 
+.error {
+  border: 1px solid tomato;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  color: tomato;
+  font-weight: bold;
+}
+
+@keyframes hideAnimation {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(1);
+  }
+  90% {
+    transform: rotateX(-300px);
+  }
+  100% {
+    transform: translateX(-600px);
+  }
+}
+
+@keyframes showThanksAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}
+
+
 // animations
 @keyframes showAnimation {
   0% {
@@ -96,9 +135,11 @@ body {
       background-color: white;
       transition: 0.5s;
     }
+
     .fas {
       transition: 0.5s;
     }
+
     &:hover .fas {
       color: black;
       transition: 0.5s;
@@ -109,6 +150,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .email-error, .password-error, .agreement-error {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .error {
+      border: 1px solid tomato;
+    }
+
+    .email-error {
+      top: 90px;
+    }
+
+    .password-error {
+      top: 150px;
+    }
+
+    .agreement-error {
+      top: 185px;
+    }
 
     &__title {
       font-family: $extra-font;
@@ -123,7 +187,7 @@ body {
       border: 0.75px solid lighten(black, 30%);
       padding: 10px 10px;
       font-size: 1.5rem;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
 
       &::placeholder {
         color: lighten(black, 30%);
@@ -167,6 +231,10 @@ body {
         }
       }
 
+      .error {
+        border: 1px solid tomato;
+      }
+
       .login-form__agreement-label {
         font-size: 1.3rem;
         color: lighten(black, 20%);
@@ -192,6 +260,21 @@ body {
       }
     }
   }
+}
+
+.hide-animation {
+  animation-name: hideAnimation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.form-sent-message {
+  font-size: 4.2rem;
+  font-family: $extra-font;
+  text-align: center;
+  animation-duration: 2s;
+  animation-name: showThanksAnimation;
+  animation-timing-function: ease;
 }
 
 
