@@ -2,9 +2,22 @@
 $primary-color: #fcaf32;
 $secondary-color: #fc888e;
 
-html,
+
+// fonts
+$extra-font: 'Lobster', cursive;
+$basic-font: 'Lato', sans-serif;
+
+// I set font-size for html because I want to use rem
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: $basic-font;
   margin: 0;
   padding: 0;
 }
@@ -15,6 +28,22 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+}
+
+.d-none {
+  display: none;
+}
+
+// animations
+@keyframes showAnimation {
+  0% {
+    transform: scale(0.7) translateX(-30%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateX(0%);
+    opacity: 1;
+  }
 }
 
 .btn-main {
@@ -33,3 +62,137 @@ body {
     transform: scale(1.15);
   }
 }
+
+
+.popup {
+  animation-name: showAnimation;
+  animation-timing-function: ease;
+  animation-duration: 0.5s;
+  background-color: white;
+  padding: 20px 27px 30px 27px;
+  position: relative;
+  border-radius: 7px;
+
+  &__hide-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    color: whitesmoke;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: white;
+      transition: 0.5s;
+    }
+    .fas {
+      transition: 0.5s;
+    }
+    &:hover .fas {
+      color: black;
+      transition: 0.5s;
+    }
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      font-family: $extra-font;
+      margin-bottom: 13px;
+      font-size: 2.2rem;
+    }
+
+    &__login-field, &__password-field {
+      border-radius: 2px;
+      font-family: $basic-font;
+      width: 200px;
+      border: 0.75px solid lighten(black, 30%);
+      padding: 10px 10px;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+
+      &::placeholder {
+        color: lighten(black, 30%);
+        font-size: 1.1rem;
+      }
+    }
+
+    .form__input-group {
+      align-items: center;
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .login-form__agreement-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        vertical-align: middle;
+        outline: none;
+        position: relative;
+        border: 0.75px solid black;
+
+        &:checked::before {
+          font-family: "Font Awesome 5 Free", sans-serif;
+          content: "\f00c";
+          color: black;
+          font-weight: bold;
+          display: inline;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-47%, -50%);
+        }
+
+        &:focus {
+          border: 1px solid gray;
+        }
+      }
+
+      .login-form__agreement-label {
+        font-size: 1.3rem;
+        color: lighten(black, 20%);
+      }
+    }
+
+    &__button {
+      font-family: $basic-font;
+      border: none;
+      text-transform: uppercase;
+      color: white;
+      font-weight: bold;
+      width: 200px;
+      padding: 11px 0;
+      cursor: pointer;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      background-color: black;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+
+

@@ -12,11 +12,22 @@
   <body>
     <section class="main">
       <button id="show-popup-form" class="btn btn-main">Click me!</button>
-      <!-- Display success message below -->
+      <div class="popup d-none">
+        <button  class="popup__hide-btn">
+          <i class="fas fa-times "></i>
+        </button>
+        <form class="login-form">
+          <h1 class="login-form__title">Login</h1>
+          <input  id="login" type="text" class="login-form__login-field" placeholder="E-mail">
+          <input  id="password" type="password" class="login-form__password-field" placeholder="Password">
+          <div class="form__input-group">
+            <input id="agreement" type="checkbox" class="login-form__agreement-input">
+            <label  for="agreement" class="login-form__agreement-label">I agree to terms & conditions.</label>
+          </div>
+          <button class="login-form__button">submit</button>
+        </form>
+      </div>
     </section>
-    <div class="popup">
-      <!-- Here goes your popup form HTML code -->
-    </div>
     <script src="js/index.min.js" charset="utf-8"></script>
   </body>
 </html>
